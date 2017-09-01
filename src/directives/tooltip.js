@@ -22,6 +22,7 @@ const DEFAULT_OPTIONS = {
     },
     placement: 'auto',
     placementPostfix: null, // start | end
+    focusOnCreate: false,
     removeOnDestroy: true,
     title: '',
     class: '', // ex: 'tooltip-custom tooltip-other-custom'
@@ -56,6 +57,9 @@ export default class Tootlip {
         this._visible = false;
         this._clearDelay = null;
         this._setEvents();
+
+        if (this._options.focusOnCreate)
+            $tpl.scrollIntoView();
     }
 
     destroy () {
